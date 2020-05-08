@@ -1,0 +1,27 @@
+kind: pipeline
+name: images
+type: kubernetes
+
+steps:
+- name: build
+  image: plugins/docker
+  environment:
+  settings:
+    purge: false
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: zillownyc/pluto
+    build_args:
+    - VERSION=2.0.2
+    tags:
+    - latest
+    - "2.0.2"
+    - "2.0"
+
+trigger:
+  event:
+  - push
+  branch:
+  - master
