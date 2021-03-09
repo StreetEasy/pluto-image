@@ -14,11 +14,11 @@ steps:
       from_secret: docker_password
     repo: zillownyc/pluto
     build_args:
-    - VERSION=2.0.2
+    - VERSION=4.0.5
     tags:
     - latest
-    - "2.0.2"
-    - "2.0"
+    - "4.0.5"
+    - "4.0"
 
 trigger:
   event:
